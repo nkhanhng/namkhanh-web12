@@ -1,0 +1,11 @@
+.red {
+  color: rgb(20, 217, 218);
+}
+
+ul>li {
+  color: rgb(98, 215, 17);
+}
+
+h1.red#heading1 {
+  text-align: center;
+}
