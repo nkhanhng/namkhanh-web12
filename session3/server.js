@@ -17,8 +17,8 @@ app.get('/web:id',function(req,res){
             var members = "";
             let data = JSON.parse(body);
             for(name of data.data){
-                // members += `<li>${name}<li>`;
-                members += `${name}`;
+                members += `<li>${name}<li>`;
+                // members += `${name}`;
             }
         }
         res.send(members);
