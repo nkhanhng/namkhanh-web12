@@ -1,5 +1,16 @@
-<div>{{question.questionContent}}</div>
-Vote: 
-<div> Yes: {{question.yes}}</div>
+{{#if question}}
 
-<div>No: {{question.no}}</div> 
+<div>{{question.content}}</div>
+
+<a href="/question/{{question.id}}/yes">Yes</a>
+<a href="/question/{{question.id}}/no">No</a>
+{{else}}
+
+<h1>Q is empty</h1>
+
+{{/if}}
+
+{{!-- <form action="/question/{{question.id}}" method="POST">
+    <input type="submit" value="yes" name="vote">
+    <input type="submit" value="no" name="vote">
+</form> --}}

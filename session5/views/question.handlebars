@@ -1,4 +1,11 @@
-{{question.questionContent}}
-Vote: 
-Yes: {{question.yes}}
-No: {{question.no}}
+<div>
+    <div><h3>{{question.content}} ?</h3></div>
+    <div>Vote</div>
+    <div>yes: {{question.yes}}</div>
+    <div>no: {{question.no}}</div>
+
+    <div>
+        <a href="/question/{{question.id}}/yes">Yes</a>
+        <a href="/question/{{question.id}}/no">No</a>
+    </div>
+</div>
