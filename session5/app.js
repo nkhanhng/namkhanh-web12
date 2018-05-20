@@ -17,7 +17,7 @@ let app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
 
-
+app.use(express.static('public'));
 //khai bao engine
 app.engine("handlebars", handlebars({defaultLayout: 'main'}));
 // dat view engine cua app la 'handlebars'
@@ -65,8 +65,10 @@ app.post('/api/question',function(req,res){
     QuestionModel.create(newQuestion,(err,questionCreated)=>{
         if(err) console.log(err)
         else console.log("Question created");
+        
+        res.redirect(`/question/${questionCreated._id}`);
     });
-    res.redirect(`/`);
+   
 });
 
 

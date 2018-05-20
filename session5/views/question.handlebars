@@ -1,11 +1,23 @@
-<div>
-    <div><h3>{{question.content}} ?</h3></div>
-    <div>Vote</div>
-    <div>yes: {{question.yes}}</div>
-    <div>no: {{question.no}}</div>
+{{#if question}}
 
-    <div>
-        <a href="/question/{{question.id}}/yes">Yes</a>
-        <a href="/question/{{question.id}}/no">No</a>
+<h1 class="text-center">{{question.content}}</h1>
+<div class="row mt-5">
+    <div class="col-md-6 text-center">
+        <a  href="/question/{{question.id}}/yes"><button class="btn btn-primary w-100"><i class="fas fa-thumbs-up"></i>Yes {{question.yes}}</button></a>
+    </div>
+    <div class="col-md-6 text-center">
+        <a  href="/question/{{question.id}}/no"><button class="btn btn-success w-100"><i class="fas fa-thumbs-down"></i>No {{question.no}}</button></a>
     </div>
 </div>
+
+<div class="mt-5 text-center">
+    <a href="/ask" class="text-white"><button type="button" class="btn btn-success col-md-1">Ask</button></a>
+    <a href="/" class="text-white"><button type="button" class="btn btn-danger col-md-1">Result</button></a>
+    
+</div>
+
+{{else}}
+
+<h1>Q is empty</h1>
+
+{{/if}}

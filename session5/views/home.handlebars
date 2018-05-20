@@ -1,9 +1,9 @@
 {{#if question}}
 
-<div>{{question.content}}</div>
+<div class="text-center">{{question.content}}</div>
 
-<a href="/question/{{question.id}}/yes">Yes</a>
-<a href="/question/{{question.id}}/no">No</a>
+<a class="" href="/question/{{question.id}}/yes"><button class="btn btn-primary">Yes</button></a>
+<a class="" href="/question/{{question.id}}/no"><button class="btn btn-success">No</button></a>
 {{else}}
 
 <h1>Q is empty</h1>

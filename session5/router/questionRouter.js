@@ -21,16 +21,27 @@ Router.get('/:id/:vote', function(req,res){
         } else if(vote =='no'){
             question.no += 1;
         }
-
-        question.save(function(err){
+        // question.[vote] += 1
+       question.save(function(err){
             if(err) throw err;
 
             console.log('Updated');
         })
 
-        res.redirect(`/`);
+        res.redirect(`/question/${question._id}`);
     })
 
+    // if(vote == 'yes'){
+    //     QuestionModel.findByIdAndUpdate(questionId,{$inc:{yes:1}},function(err,questionFound){
+    //         if(err) console.log(err)
+    //         else res.redirect(`/question/${questionFound._id}`);
+    //     })
+    // }else{
+    //     QuestionModel.findByIdAndUpdate(questionId,{$inc:{no:1}},function(err,questionFound){
+    //         if(err) console.log(err)
+    //         else res.redirect(`/question/${questionFound._id}`);
+    //     })
+    // }
    
 })
 
@@ -42,6 +53,10 @@ Router.get('/:id',function(req,res){
             console.log("question found");
         }
 
+        //remove an document
+        // question.remove((function(err){
+        //     if(err) console.log(err);
+        // }))
         res.render("question", {
             question: question,
         })
