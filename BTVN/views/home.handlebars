@@ -1,0 +1,17 @@
+<div class="card-columns">
+{{#each girls}}
+    <div class="card " style="width: 18rem;">
+        <a href="/girl/{{_id}}">
+        <img class="card-img-top" src="{{imageUrl}}" alt="{{name}}">
+            
+        </a>
+        <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <p class="card-text">{{address}}</p>
+            <p class="card-text border-top">{{description}}.</p>
+        </div>
+    </div>        
+{{else}}
+    <p>No content</p>
+{{/each}}
+</div>

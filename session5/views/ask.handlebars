@@ -1,7 +1,6 @@
-<form action="/api/question" method="POST" class="w-75 p-5">
+<form action="/api/question" method="POST">
     <label for="exampleFormControlTextarea1"><h1>Ask please</h1></label>
-    <textarea class="form-control" id="question" rows="3" maxlength="200"></textarea>
+    <textarea class="form-control" id="question" rows="3" maxlength="200" name="question"></textarea>
     <div id="charactersRemaining">200 characters</div>
-    <button type="button" class="btn btn-warning mt-3">Send</button>
+    <button class="btn btn-warning mt-3">Send</button>
 </form>
-<script src="../countCharacters.js"></script>
