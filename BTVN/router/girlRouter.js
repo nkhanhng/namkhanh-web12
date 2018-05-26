@@ -10,7 +10,6 @@ Router.get('/:id',function(req,res){
         else{
             console.log("profile found");
         }
-
         res.render('profile',{
             profile: profileFound
         })

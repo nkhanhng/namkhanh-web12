@@ -12,7 +12,7 @@
 
 <div class="mt-5 text-center">
     <a href="/ask" class="text-white"><button type="button" class="btn btn-success col-md-1">Ask</button></a>
-    <a href="/" class="text-white"><button type="button" class="btn btn-danger col-md-1">Result</button></a>
+    <a href="#" class="text-white"><button type="button" class="btn btn-danger col-md-1 btn-next-question">Other question</button></a>
     
 </div>
 
@@ -21,3 +21,23 @@
 <h1>Q is empty</h1>
 
 {{/if}}
+
+<script>
+    $(".btn-next-question").click(function(){
+        e.preventDefault();
+        $.ajax({
+            url: '/api/question',
+            type: 'GET',
+            success: function(respone){
+               if(res.success){
+                   $('h1').text(res.question.content)
+                   $('.btn-primary').attr("href", `/question/${res.question._id}/yes`)
+                   $('.btn-success').attr("href", `/question/${res.question._id}/no`)
+               }
+            },
+            error: function(respone){
+                console.log("Error",respone);
+            }
+        })
+    })
+</script>

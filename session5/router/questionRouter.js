@@ -13,6 +13,21 @@ let Router = express.Router();
 Router.get('/:id/:vote', function(req,res){
     let questionId = req.params.id; 
     let vote = req.params.vote;
+
+    // try {
+    //     QuestionModel.findById(questionId)
+    //         .then(function(question){
+    //             question[vote] += 1;
+    //         })
+    //         .then(function(question){
+                    
+    //         })
+    // } catch (error) {
+        
+    // }
+
+
+
     QuestionModel.findById(questionId,function(err,question){
         if(err) console.log(err)
         

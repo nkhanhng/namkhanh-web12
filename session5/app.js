@@ -63,14 +63,21 @@ app.post('/api/question',function(req,res){
     };
 
     QuestionModel.create(newQuestion,(err,questionCreated)=>{
-        if(err) console.log(err)
-        else console.log("Question created");
+        if(err) res.send({success: 0,err:err})
+        else res.send({success: 1, questionId: questionCreated._id})
         
-        res.redirect(`/question/${questionCreated._id}`);
+        // res.redirect(`/question/${questionCreated._id}`);
+
     });
    
 });
 
+app.get('/api/question',function(req,res){
+    QuestionModel.find({},function(err,questions){
+        if(err) console.log(err);
+        else{ res.send({success:1, question: questions[Math.floor(Math.random()*questions.length)] })}
+    })
+});
 
 app.listen(8000, function(err){
     if(err) console.log(err);
