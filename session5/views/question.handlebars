@@ -3,10 +3,10 @@
 <h1 class="text-center">{{question.content}}</h1>
 <div class="row mt-5">
     <div class="col-md-6 text-center">
-        <a  href="/question/{{question.id}}/yes"><button class="btn btn-primary w-100"><i class="fas fa-thumbs-up"></i>Yes {{question.yes}}</button></a>
+        <a  href="/question/{{question.id}}/yes"><button class="btn btn-primary w-100 btn-yes"><i class="fas fa-thumbs-up"></i>Yes {{question.yes}}</button></a>
     </div>
     <div class="col-md-6 text-center">
-        <a  href="/question/{{question.id}}/no"><button class="btn btn-success w-100"><i class="fas fa-thumbs-down"></i>No {{question.no}}</button></a>
+        <a  href="/question/{{question.id}}/no"><button class="btn btn-success w-100 btn-no"><i class="fas fa-thumbs-down"></i>No {{question.no}}</button></a>
     </div>
 </div>
 
@@ -24,15 +24,16 @@
 
 <script>
     $(".btn-next-question").click(function(){
-        e.preventDefault();
         $.ajax({
             url: '/api/question',
             type: 'GET',
-            success: function(respone){
+            success: function(res){
                if(res.success){
-                   $('h1').text(res.question.content)
-                   $('.btn-primary').attr("href", `/question/${res.question._id}/yes`)
-                   $('.btn-success').attr("href", `/question/${res.question._id}/no`)
+                   $("h1").text(res.question.content)
+                   $(".btn-yes").text(res.question.yes)
+                   $(".btn-no").text(res.question.no)
+                   $(".btn-primary").attr("href", `/question/${res.question._id}/yes`)
+                   $(".btn-success").attr("href", `/question/${res.question._id}/no`)
                }
             },
             error: function(respone){
