@@ -1,0 +1,29 @@
+.result{
+    display: flex;
+    margin: 20px 0 10px;
+    align-items: center;
+}
+
+#result-list {
+    padding: 50px 15px;
+}
+
+.result img{
+    width: 325px;
+    height: auto;
+    padding: 10px;
+}
+
+.video-info{
+    margin-left: 20px;
+}
+
+.result.video-info > span:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.result:hover {
+    text-decoration: none;
+    box-shadow: 0 0 10px #888888;
+}
